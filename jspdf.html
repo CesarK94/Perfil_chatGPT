@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo jspdf</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <h1>Proyecto ChatGPT</h1>
+
+    <Label>Nombre de la Familia</Label> <br>
+    <input type="text" id="input_familia">
+    <button onclick="updateText('familia')" style="margin-bottom: 10px;">Agregar</button>
+    <br>
+
+    <Label>Nombre del Sector</Label> <br>
+    <input type="text" id="input_sector">
+    <button onclick="updateText('sector')" style="margin-bottom: 10px;">Agregar</button>
+    <br>
+
+    <Label>Nombre de la Actividad</Label> <br>
+    <input type="text" id="input_actividad">
+    <button onclick="updateText('actividad')" style="margin-bottom: 10px;">Agregar</button>
+    <br>
+
+    <Label>Nombre del Puesto</Label> <br>
+    <input type="text" id="input_puesto">
+    <button onclick="updateText('puesto')" style="margin-bottom: 10px;">Agregar</button>
+    <br>
+
+    <div id="competenciasList"></div>
+
+    <button id="Aceptar_competencias" onclick="listar()" hidden>Aceptar competencias</button>
+      
+
+    <h3>Contenido del PDF</h3>
+
+    <div class="hoja">
+        <div id="contect_pdf">
+            <center>
+                <table>
+                    <tr>
+                        <td>Familia</td>
+                        <td id="td_familia"></td>
+                    </tr>
+                    <tr>
+                        <td>Sector</td>
+                        <td id="td_sector"></td>
+                    </tr>
+                    <tr>
+                        <td>Actividad</td>
+                        <td id="td_actividad"></td>
+                    </tr>
+                </table>
+            </center>
+            
+            
+            <h2 id="td_puesto"></h2>
+            <p><b id="b_puesto">Competencias técnicas involucradas para el perfil de </b></p>
+            
+            <div id="listContainer"></div>
+
+            <div id="tableContainer"></div>
+            
+        </div>
+    </div>
+    
+    <button onclick="pdf()">Print PDF</button>
+
+    <script src="js/maiin.js"></script>
+</body>
+</html>
