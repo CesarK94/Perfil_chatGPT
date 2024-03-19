@@ -1,5 +1,5 @@
 
-let competencias = ['Gestión eficaz de documentos', 'Atención al cliente', 'Manejo de software administrativo', 'Comunicación efectiva','Organización de eventos y reuniones']; // Replace with your array
+let competencias = ['Gestión eficaz de documentos', 'Atención al cliente', 'Manejo de software administrativo', 'Comunicación efectiva', 'Organización de eventos y reuniones']; // Replace with your array
 
 /**
  * Funcion para generar el pdf
@@ -16,9 +16,11 @@ let competencias = ['Gestión eficaz de documentos', 'Atención al cliente', 'Ma
 function pdf(){
     const docElement = document.getElementById('contect_pdf');
     let opt = {
-        margin: [20,20,20,20],
+        margin: [15,15,15,15],
         filename: 'myfile.pdf',
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: {scrollX: 0, scrollY: 0},
     };
     html2pdf().set(opt).from(docElement).save();
 }
@@ -136,7 +138,6 @@ function modificarCompetencias(index, ...nuevasCompetencias) {
  */
 function generarTabla(contenido) {
     const tableElement = document.createElement('table');
-    tableElement.style.width = '100%';
     
     for (let i = 0; i < 5; i++) {
         const rowElement = document.createElement('tr');
